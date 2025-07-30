@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="main-header">
+    <div class="left">
+      <h2>⚡AlphaBurn</h2>
+    </div>
+    <div class="right">
+      <button class="modal-btn" onclick="openModal('aboutModal')">About</button>
+      <button class="modal-btn" onclick="openModal('contactModal')">Contact Us</button>
+      
+
+    </div>
+  </header>
+
+  <h1>Welcome to Workout Tracker</h1>
+  <nav class="sidebar" id="sidebar">
+    <h2>⚡AlphaBurn</h2>
+    <ul>      
+      <li><a href="#dashboard">Dashboard</a></li>
+      
+      <li><a href="#bmi">BMI Calculator</a></li>
+      <!-- <li><a href="#reminder">Reminders</a></li> -->
+      <li><a href="#history">History</a></li>
+      <li><a href="#goals">Goals</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+    <!-- <div class="theme-toggle">
+      <label>
+        🌙 Dark Mode
+        <input type="checkbox" id="themeToggle" />
+      </label>
+    </div> -->
+    <!-- 🌙 Sidebar Toggle (only in index.html) -->
+    <div>
+      <label class="switch">
+        <input type="checkbox" id="themeToggle" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+
+  </nav>
+
+  <!-- Main content -->
+  <main>
+    <section id="dashboard" class="hero">
+      <h1>Welcome Back, Sneha! 💪</h1>
+      <p>Track your fitness, goals, and health metrics — all in one place.</p>
+      <a href="workout.html" class="btn">➕ Add Workout</a>
+      <a href="metrics.html" class="btn">📥 Add Health Metrics</a>
+
+    </section>
+
+    <section class="cards">
+      <div class="card">
+        <h3>🔥 Calories Burned</h3>
+        <p id="caloriesValue">0 kcal</p>
+      </div>
+      <div class="card">
+        <h3>💤 Sleep Hours</h3>
+        <p id="sleepValue">0 hrs</p>
+      </div>
+      <div class="card">
+        <h3>🏃 Workouts Done</h3>
+        <p id="workoutCount">0</p>
+      </div>
+      <div class="card">
+        <h3>🎯 Goal Progress</h3>
+        <div class="progress">
+          <div class="progress-bar" id="goalProgressBar" style="width: 0%"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section id="metricsGraph">
+      <h2>📊 Metrics Overview</h2>
+      <canvas id="metricsChart" height="150"></canvas>
+    </section> -->
+
+    <section id="bmi">
+      <h2>🧠 BMI Calculator</h2>
+          <div class="input-group">
+      <label>Height (cm)</label>
+      <input type="number" id="height" placeholder="e.g. 165" />
+    </div>
+    <div class="input-group">
+      <label>Weight (kg)</label>
+      <input type="number" id="weight" placeholder="e.g. 58" />
+    </div>
+    <button type="button" id="calculateBMI" class="login-btn">Calculate BMI</button>
+    <p id="bmiResult" style="font-weight: bold; margin-top: 10px;"></p>
+          
+    </section>
+    
+    <!-- <section id="reminder">
+      <h2>⏰ Workout Reminders</h2>
+      <form id="reminderForm">
+        <input type="time" id="reminderTime" required />
+        <button type="submit">Set Reminder</button>
+        <p id="reminderStatus"></p>
+      </form>
+    </section> -->
+
+    <section id="history">
+      <h2>📅 Workout History</h2>
+      <ul id="historyList">
+        <!-- Dynamically loaded -->
+      </ul>
+    </section>
+    <section class="charts-section">
+  <h2>Your Weekly Progress 📈</h2>
+
+  <div class="charts-container">
+    <canvas id="workoutChart" class="chart"></canvas>
+    <canvas id="metricsChart2" class="chart"></canvas>
+  </div>
+</section>
+
+
+    <section id="goals">
+      <h2>🎯 Weekly Fitness Goals</h2>
+      <div class="goal">
+        <label>💪 Workouts (3/5)</label>
+        <div class="progress"><div class="progress-bar" style="width: 60%"></div></div>
+      </div>
+      <div class="goal">
+        <label>💤 Sleep (6/7 days)</label>
+        <div class="progress"><div class="progress-bar" style="width: 85%"></div></div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Beautiful Footer -->
+  <footer class="custom-footer">
+    <div class="footer-left">
+      <h3>⚡AlphaBurn</h3>
+      <p>Track your fitness. Love your body. Live strong.</p>
+    </div>
+
+    <div class="footer-center">
+      <a href="https://instagram.com/your_instagram" target="_blank" class="footer-icon insta">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+      </a>
+      <!-- <a href="https://linkedin.com/in/your_linkedin" target="_blank" class="footer-icon linkedin">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
+      </a> -->
+    </div>
+
+    <div class="footer-right">
+      <p>Made by <strong>Sneha</strong></p>
+      <p>&copy; 2025 SnehaFit. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- About Modal -->
+  <div id="aboutModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('aboutModal')">&times;</span>
+      <h2>About AlphaBurn</h2>
+      <p>
+        <strong>⚡AlphaBurn</strong> is a powerful yet beautifully simple fitness tracking web app built by Sneha.  
+        It helps users stay consistent, track their workouts, monitor health metrics, and stay motivated through personalized progress visualizations.
+      </p><br>
+      <p>
+        Whether you're a beginner starting your fitness journey or someone chasing bigger goals, AlphaBurn is designed to keep you on track —
+        with features like workout logging, health tracking (weight, heart rate, sleep), real-time dashboards, and weekly goal monitoring.
+      </p><br>
+      <p>
+        Developed with a clean UI and dynamic insights, AlphaBurn empowers you to <strong>love your body, track your journey, and live healthier every day</strong>. 🌟
+      </p><br>
+    </div>
+  </div>
+
+ 
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('contactModal')">&times;</span>
+      <h2>Contact Information 📞</h2>
+      <p><strong>Email:</strong> alphaburn01@gmail.com</p>
+      <p><strong>Phone:</strong> +91 8847302581</p>
+      <p><strong>Address:</strong> C-782 Mayur Vihar,Delhi,India</p>
+      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yourprofile" target="_blank">ourlinkdinprofile</a></p>
+      <p><strong>Instagram:</strong> <a href="https://github.com/yourusername" target="_blank">ourinstahandle</a></p>
+    </div>
+  </div>
+  
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("workout") === "success") {
+      alert("✅ Workout added successfully!");
+      // clean the URL
+      window.history.replaceState({}, document.title, "index.html");
+    }
+    if (params.get("metrics") === "success") {
+      alert("✅ Health metrics added successfully!");
+      window.history.replaceState({}, document.title, "index.html");
+    }
+  </script>
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+
+    themeToggle.addEventListener('change', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="dashboard.js"></script>
+  <!-- <script src="app.js"></script> -->
+  
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+  
+
+  <script src="main.js" defer></script>
+  
+</body>
+</html>

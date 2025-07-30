@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Workout | SnehaFit</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="login-body">
+
+  <div class="workout-container">
+    <h2>Add New Workout 🏋️‍♀️</h2>
+    <p>Log your workout to keep track of your progress</p>
+
+    <form id="workoutForm" action="/workout/add" method="POST" class="login-form">
+
+      <div class="input-group">
+        <label>Workout Type</label>
+        <select name="type" required>
+          <option value="">-- Select --</option>
+          <option value="Cardio">Cardio</option>
+          <option value="Strength">Strength</option>
+          <option value="Yoga">Yoga</option>
+          <option value="HIIT">HIIT</option>
+          <option value="Aerobic">Aerobic</option>
+          <option value="Plank">Plank</option>
+          <option value="Squat">Squat</option>
+          <option value="Circuit">Circuit</option>
+          <option value="Stretch">Stretch</option>
+          <option value="Push-up">Push-up</option>
+          <option value="Pull-up">Pull-up</option>
+          <option value="Tai Chi">Tai Chi</option>
+          <option value="Agility">Agility</option>
+          <option value="Balance">Balance</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label>Duration (minutes)</label>
+        <input type="number" name="duration" required placeholder="e.g. 45" />
+      </div>
+
+      <!-- <div class="input-group">
+        <label>Calories Burned</label>
+        <input type="number" name="calories" required placeholder="e.g. 300" />
+      </div> -->
+
+      <div class="input-group">
+        <label>Workout Date</label>
+        <input type="date" name="date" required />
+      </div>
+
+      <button type="submit" class="login-btn">Save Workout</button>
+    </form>
+  </div>
+
+  <footer class="compact-footer">
+    <p>Made with 💖 by Sneha | 
+      <a href="https://instagram.com/your_instagram" target="_blank">📸 Instagram</a> • 
+      <a href="https://facebook.com/your_facebook" target="_blank">📘 Facebook</a>
+    </p>
+  </footer>
+  <script src="dashboard.js"></script>
+</body>
+</html>

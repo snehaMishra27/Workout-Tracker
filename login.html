@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | SnehaFit</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="login-body">
+
+  <div class="login-container">
+    <h2>Welcome Back 💪</h2>
+    <p>Log in to continue your fitness journey</p>
+
+    <form id="loginForm" action="/auth/login" method="POST" class="login-form">
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" name="email" required placeholder="you@example.com" />
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" name="password" id="password" required placeholder="••••••••" />
+        <span class="toggle-password" onclick="togglePassword()">👁️</span>
+      </div>
+
+      <button type="submit" class="login-btn">Login</button>
+
+      <p class="bottom-text">Don't have an account? <a href="register.html">Register here</a></p>
+    </form>
+  </div>
+
+  <footer class="compact-footer">
+    <p>Made with 💖 by Sneha | 
+      <a href="https://instagram.com/your_instagram" target="_blank">📸 Instagram</a> • 
+      <a href="https://facebook.com/your_facebook" target="_blank">📘 Facebook</a>
+    </p>
+  </footer>
+
+  <script>
+    function togglePassword() {
+      const pwd = document.getElementById("password");
+      pwd.type = pwd.type === "password" ? "text" : "password";
+    }
+  </script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
